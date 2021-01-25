@@ -1,8 +1,8 @@
 import string
 import sys
+from functools import reduce
 
-
-bibletxt = filter(lambda x: x in string.ascii_letters or x == ' ', open('bible.txt').read()).split(' ')
+bibletxt = str(''.join(list(filter(lambda x: x in string.ascii_letters or x == ' ', open('bible.txt').read())))).split(' ')
 L = len(bibletxt)
 biblehashlen = 16
 
@@ -14,7 +14,7 @@ def biblehash(x):
         492, 958, 111, 879,
         410, 000, 666, 959,
         795, 485, 132, 269,
-        L,   L/2, L/3, L/4,
+        L,   int(L/2), int(L/3), int(L/4),
         0,   1,   2,   3
     ]
 
